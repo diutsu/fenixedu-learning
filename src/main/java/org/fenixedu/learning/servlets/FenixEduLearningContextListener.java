@@ -92,6 +92,9 @@ public class FenixEduLearningContextListener implements ServletContextListener {
         Signal.register(ExecutionCourse.CREATED_SIGNAL, (DomainObjectEvent<ExecutionCourse> event) -> {
             ExecutionCourseListener.create(event.getInstance());
         });
+        Signal.register(ExecutionCourse.CREATED_SIGNAL, (DomainObjectEvent<ExecutionCourse> event) -> {
+            ExecutionCourseListener.update(event.getInstance());
+        });
         Signal.register(ExecutionCourse.ACRONYM_CHANGED_SIGNAL, (DomainObjectEvent<ExecutionCourse> event) -> {
             ExecutionCourseListener.updateSiteSlug(event.getInstance());
         });

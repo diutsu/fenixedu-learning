@@ -114,4 +114,10 @@ public class ExecutionCourseListener {
         }
     
     }
+    
+    public static void update(ExecutionCourse instance) {
+        instance.getSite().setName(instance.getNameI18N());
+        instance.getSite().setSlug(formatSlugForExecutionCourse(instance));
+        instance.setSiteUrl(instance.getSite().getFullUrl());
+    }
 }
